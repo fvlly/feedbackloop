@@ -1,17 +1,13 @@
-const express = require('express')
+require("dotenv").config();
+const express = require("express");
+require("./services/passport");
 
-const app = express()
+const app = express();
 
-
-app.get('/',(req,res)=>{
-    res.send({
-        'name': "nonymous dev"
-    })
-})
+require("./routes/authRoutes")(app)
 
 
-const PORT = process.env.PORT|| 5000
-
-app.listen(PORT,()=>{
-    console.log('App is up and running on PORT:',PORT);
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log("App is up and running on PORT:", PORT);
+});
