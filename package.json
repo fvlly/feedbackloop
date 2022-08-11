@@ -1,0 +1,28 @@
+{
+  "name": "feedbackloop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fvlly/feedbackloop.git"
+  },
+  "author": "LAI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fvlly/feedbackloop/issues"
+  },
+  "homepage": "https://github.com/fvlly/feedbackloop#readme",
+  "dependencies": {
+    "cookie-session": "^2.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.2",
+    "passport": "^0.5.3",
+    "passport-google-oauth20": "^2.0.0"
+  }
+}
