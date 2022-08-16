@@ -5,16 +5,15 @@ const mongoose = require("mongoose");
 const User = mongoose.model("users");
 
 //cookie data transfer
-passport.serializeUser((user,done)=>{
-    done(null,user.id)
-})
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
 
-passport.deserializeUser((id,done)=>{
-    User.findById(id)
-        .then(user=>{
-            done(null,user)
-        })
-})
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+});
 
 passport.use(
   new GoogleStrategy(
@@ -22,19 +21,17 @@ passport.use(
       clientID: process.env.GOOGLE_AUTH_CLIENT_ID,
       clientSecret: process.env.GOOGLE_AUTH_CLIENT_SECRET,
       callbackURL: "/auth/google/callback",
-      proxy:true,
+      proxy: true,
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then((foundUser) => {
-        if (foundUser) {
-          // exisiting user in DB
-          done(null, foundUser);
-        }
+    async (accessToken, refreshToken, profile, done) => {
+      const foundUser = await User.findOne({ googleId: profile.id });
 
-        new User({ googleId: profile.id }) //store new user inDB
-          .save()
-          .then((user) => done(null, user));
-      });
+      if (foundUser) { 
+       return done(null, foundUser);
+      }
+
+      const user = await new User({ googleId: profile.id }).save(); //store new user in DB
+      done(null, user);
     }
   )
 );
