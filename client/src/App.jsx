@@ -1,9 +1,39 @@
-import React from 'react'
+import { useEffect } from "react";
+import {BrowserRouter,Route} from 'react-router-dom'
+import { connect } from "react-redux";
 
-const App = () => {
+import Dashboard from './components/Dashboard'
+import Header from './components/Header'
+import Surveys from './components/Surveys'
+import Landing from './components/Landing'
+import { Container } from '@chakra-ui/react'
+import { fetchUser } from "./actions";
+
+
+
+const App = (props) => {
+  
+  useEffect(()=>{
+    props.fetchUser()
+  },[])
+
+
+
   return (
-    <div>App</div>
-  )
+    <BrowserRouter>
+    <Header />
+    <Container maxW={'98%'}>
+    <Route exact path='/' component={Landing} />
+    <Route exact path='/sureys/new' component={Surveys} />
+    <Route  path='/surveys' component={Dashboard} />
+
+    </Container>
+    </BrowserRouter>
+    )
 }
 
-export default App
+const mapStateToProps = (state)=>{
+  return{auth:state.auth}
+}
+
+export default  connect(mapStateToProps,{fetchUser})(App)
