@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { Link as RouterLink } from "react-router-dom";
-import { Flex, Link, HStack,Center } from "@chakra-ui/react";
+import { Flex, Link, HStack, Center } from "@chakra-ui/react";
 import LinkButton from "./LinkButton";
 import { fetchUser } from "../actions";
 import Billing from "./Billing";
@@ -12,9 +12,16 @@ const Header = (props) => {
       return (
         <HStack spacing={8}>
           <Billing />
-          <Center>Credits: 0</Center>
-          <Link href='/api/logout'>Logout</Link>
-        
+          <Center
+            color="black"
+            rounded={[10]}
+            p={[1.5]}
+            border="1px solid"
+            borderColor="white"
+          >
+            Credits: {props.auth.credits}
+          </Center>
+          <Link href="/api/logout">Logout</Link>
         </HStack>
       );
     } else if (props.auth === null) {
