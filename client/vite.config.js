@@ -8,12 +8,12 @@ export default defineConfig({
     proxy:{
       '/auth/google':{
         target: 'http://localhost:5000',
-        changeOrigin:true
+        
         
       },
       '/api':{
         target: 'http://localhost:5000',
-        changeOrigin:true
+        
 
       }
     }

@@ -4,7 +4,7 @@ import React from "react";
 
 const Landing = () => {
   return(
-    <Box pt={24}>
+    <Box as='section' pt={24}>
         <Heading>Landing</Heading>
         <Link href='/auth/google'  isExternal>
             Proxy me 

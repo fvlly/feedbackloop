@@ -1,0 +1,22 @@
+import StripeCheckout from "react-stripe-checkout"
+import {Button} from '@chakra-ui/react'
+import { connect } from "react-redux/es/exports"
+import { handleToken } from "../actions"
+
+const Billing = (props) => {
+  return (
+    <StripeCheckout
+    name='Feedback Loop'
+    description="$5 for 5 email credits"
+    amount={500}
+    token={token=>props.handleToken(token)}
+    stripeKey={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
+    >
+      <Button
+      colorScheme='blue'
+      >Add credits</Button>
+    </StripeCheckout>
+    )
+}
+
+export default connect(null,{handleToken})(Billing)
