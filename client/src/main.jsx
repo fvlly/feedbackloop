@@ -8,6 +8,7 @@ import reducers from "./reducers";
 import App from "./App";
 
 
+
 const store = createStore(reducers,{},applyMiddleware(reduxThunk))
 
 ReactDOM.createRoot(document.getElementById("root")).render(

@@ -10,7 +10,6 @@ import { Container } from '@chakra-ui/react'
 import { fetchUser } from "./actions";
 
 
-
 const App = (props) => {
   
   useEffect(()=>{
