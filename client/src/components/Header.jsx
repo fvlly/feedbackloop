@@ -4,6 +4,8 @@ import { Flex, Link, HStack, Center } from "@chakra-ui/react";
 import LinkButton from "./LinkButton";
 import { fetchUser } from "../actions";
 import Billing from "./Billing";
+import { AiOutlineGooglePlus } from "react-icons/ai";
+
 
 const Header = (props) => {
   //helper
@@ -33,6 +35,10 @@ const Header = (props) => {
           href="/auth/google"
           bgColor="orange"
           color="white"
+          rounded='6'
+          width='140px'
+          height='40px'
+          icon={AiOutlineGooglePlus}
         />
       );
     }

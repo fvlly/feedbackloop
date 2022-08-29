@@ -1,61 +1,22 @@
-const sendgrid = require("sendgrid");
-const { mail: helper } = sendgrid;
+const sgMail = require("@sendgrid/mail");
+     
+    class Mailer {
+      constructor({ subject, recipients }, content) {
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        this.msg = {
+          to: recipients.map(({ email }) => email),
+          from: "luqmanaibrahim@gmail.com",
+          subject: subject,
+          html: content,
+          trackingSettings: { enable_text: true, enabled: true }
+        };
+      }
+     
+      async send() {
+        const response = await sgMail.send(this.msg);
+        return response;
+      }
+    }
 
-class Mailer extends helper.Mail {
-  constructor({ subject, recipients }, content) {
-    super();
-
-    this.sgApi = sendgrid(process.env.SENDGRID_API_KEY);
-    this.from_email = new helper.Email("luqmanaibrahim@gmail.com");
-    this.subject = subject;
-    this.body = new helper.Content("text/html", content);
-    this.recipients = this.formatAddresses(recipients); //helper function handling incoming emails
-
-    this.addContent(this.body); //sendgrid helper
-    this.addClickTracking();
-    this.addRecipients();
-  }
-
-
-formatAddresses(recipients) {
-    return recipients.map(({ email }) => {
-      return new helper.Email(email);
-    });
-  }
-
-  addClickTracking() {
-    //identify unqiue users using sendgrid tracking
-    const trackingSettings = new helper.TrackingSettings();
-    const clickTracking = new helper.ClickTracking(true, true);
-
-    trackingSettings.setClickTracking(clickTracking);
-    this.addTrackingSettings(trackingSettings);
-  }
-
-  addRecipients() {
-    const personalize = new helper.Personalization();
-    
-    this.recipients.forEach(recipient => {
-      personalize.addTo(recipient);
-    });
-    this.addPersonalization(personalize);
-  }
-
-  async send() { //sends mailer object to sendgrid
-   try {
-    const request = this.sgApi.emptyRequest({
-        method: "POST",
-        path: "/v3/mail/send",
-        body: this.toJSON(),
-      });
-  
-      const response = await this.sgApi.API(request);
-      return response;
-
-   } catch (error) {
-    console.log(error.message);
-   }
-  }
-}
 
 module.exports = Mailer;

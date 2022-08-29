@@ -1,10 +1,11 @@
 import React from 'react'
 import {Box,Heading} from '@chakra-ui/react'
+import SurveyForm from './SurveyForm'
 
 const Surveys = () => {
   return (
     <Box as='section' pt={24}>
-      <Heading>Surveys</Heading>
+      <SurveyForm />
     </Box>
   )
 }

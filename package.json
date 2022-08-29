@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/fvlly/feedbackloop#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
     "concurrently": "^7.3.0",
     "cookie-session": "^2.0.0",
     "dotenv": "^16.0.1",
@@ -28,7 +29,6 @@
     "mongoose": "^6.5.2",
     "passport": "^0.5.3",
     "passport-google-oauth20": "^2.0.0",
-    "sendgrid": "^5.2.3",
     "stripe": "^10.2.0"
   }
 }
