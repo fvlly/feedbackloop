@@ -1,14 +1,15 @@
 //contains logic to render a single label and text field
 
-import { FormControl, FormLabel, Input } from "@chakra-ui/react"
+import { FormControl, FormLabel,FormErrorMessage, Input } from "@chakra-ui/react"
 
 
-const SurveyField = ({input,meta,label}) => {
+const SurveyField = ({input,label,meta}) => {
    
     return (
-    <FormControl>
+    <FormControl isInvalid={meta.touched && meta.invalid}>
         <FormLabel>{label}</FormLabel>
         <Input {...input} />
+        <FormErrorMessage>{meta.error}</FormErrorMessage>
     </FormControl>
   )
 }

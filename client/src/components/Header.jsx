@@ -15,7 +15,7 @@ const Header = (props) => {
         <HStack spacing={8}>
           <Billing />
           <Center
-            color="black"
+            color="orange"
             rounded={[10]}
             p={[1.5]}
             border="1px solid"
@@ -51,7 +51,7 @@ const Header = (props) => {
         zIndex={2}
         w={"full"}
         top={0}
-        bgColor={"gray.100"}
+        bgColor={"gray.700"}
         color="orange.500"
         minH="10vh"
         px={8}
