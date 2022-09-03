@@ -9,7 +9,7 @@ const Dashboard = () => {
         <LinkButton
         type
           to="/surveys/new"
-          bgColor="red"
+          bgColor="#c05621"
           color="white"
           width="50px"
           height="50px"
