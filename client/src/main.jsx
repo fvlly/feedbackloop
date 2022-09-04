@@ -7,9 +7,6 @@ import { ChakraProvider } from "@chakra-ui/react";
 import reducers from "./reducers";
 import App from "./App";
 
-import axios from "axios";
-window.axios = axios;
-
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
 ReactDOM.createRoot(document.getElementById("root")).render(
