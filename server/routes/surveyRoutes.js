@@ -12,6 +12,14 @@ const Survey = mongoose.model("Survey");
 
 module.exports = (app) => {
 
+  app.get('/api/surveys',requireLogin,async (req,res)=>{
+   const surveys = await Survey.find({_user:req.user.id},{
+      recipients:false
+    })
+
+    res.send(surveys)
+  })
+
  app.get('/api/surveys/:surveyId/:choice',(req,res)=>{
   
   res.send('Thanks for your input!')
@@ -34,6 +42,7 @@ module.exports = (app) => {
 //get unique events
   .compact()
   .uniqBy('email','surveyId')
+  //updating dB with recipient response
   .each(({surveyId,email,choice}) => {
     Survey.updateOne({
       _id:surveyId,

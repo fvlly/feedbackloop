@@ -9,6 +9,8 @@ import App from "./App";
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));
 
+
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <ChakraProvider>
