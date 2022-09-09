@@ -15,7 +15,7 @@ const Header = (props) => {
         <HStack spacing={8}>
           <Billing />
           <Center
-            color="orange"
+            color="orange.500"
             rounded={[10]}
             p={[1.5]}
             border="1px solid"
@@ -33,7 +33,7 @@ const Header = (props) => {
         <LinkButton
           text="Sign in with google"
           href="/auth/google"
-          bgColor="orange"
+          bgColor="orange.500"
           color="white"
           rounded='6'
           width='140px'

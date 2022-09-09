@@ -21,7 +21,7 @@ const App = (props) => {
   return (
     <BrowserRouter>
     <Header />
-    <Container maxW={'98%'}>
+    <Container maxW={'98%'} >
     <Route exact path='/' component={Landing} />
     <Route exact path='/surveys' component={Dashboard} />
     <Route  path='/surveys/new' component={Surveys} />

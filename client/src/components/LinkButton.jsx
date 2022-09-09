@@ -36,9 +36,10 @@ const LinkButton = ({
       //   target="_blank"
       _hover={{ textDecoration: "none", transform: "scale(1.01)" }}
     >
+
+      {icon && <Icon as={icon} w={6} h={6} />}
       <Text> {text}</Text>
 
-      <Icon as={icon} w={6} h={6} />
     </Link>
   );
 };

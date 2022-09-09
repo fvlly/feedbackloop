@@ -5,7 +5,7 @@ const sgMail = require("@sendgrid/mail");
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
         this.msg = {
           to: recipients.map(({ email }) => email),
-          from: "luqmanaibrahim@gmail.com",
+          from: "feedbackloop@mail.com",
           subject: subject,
           html: content,
           trackingSettings: { enable_text: true, enabled: true }
