@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { AiOutlineDelete } from "react-icons/ai";
 
-import { fetchSurveys } from "../../actions";
+import { fetchSurveys,deleteSurvey } from "../../actions";
 
 const SurveyList = (props) => {
    
@@ -35,7 +35,8 @@ const SurveyList = (props) => {
     
   return  props.surveys.reverse().map((survey) => {
         return (
-          <Flex cursor={'pointer'}  key={survey.id} direction={'column'} color='gray.800' border="1px solid" rounded={10} my={[4,6]} p={[4,6]} boxShadow={'md'}>
+          
+          <Flex  key={survey._id} cursor={'pointer'}  direction={'column'} color='gray.800' border="1px solid" rounded={10} my={[4,6]} p={[4,6]} boxShadow={'md'}>
             
               <Text fontWeight={'bold'} fontSize='20px'>{survey.title}</Text>
               <Text>{survey.body}</Text>
@@ -46,7 +47,7 @@ const SurveyList = (props) => {
             <Flex color='orange.500' pt={4}>
               <Text mr={4} as="span">Yes: {survey.yes}</Text>
               <Text as="span">No: {survey.no}</Text>
-              <Icon w={6} h={6} as={AiOutlineDelete} marginLeft={'auto'}></Icon>
+              <Icon onClick={()=>props.deleteSurvey(survey._id)} w={6} h={6} as={AiOutlineDelete} marginLeft={'auto'}></Icon>
             </Flex>
           </Flex>
         );
@@ -60,4 +61,4 @@ const mapStateToProps = (state) => {
   return { surveys: state.surveys };
 };
 
-export default connect(mapStateToProps, { fetchSurveys })(SurveyList);
+export default connect(mapStateToProps, { fetchSurveys,deleteSurvey })(SurveyList);
