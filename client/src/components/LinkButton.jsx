@@ -16,7 +16,7 @@ const LinkButton = ({
 }) => {
   return (
     <Link
-      as={type && RouterLink}
+      as={type==='router' && RouterLink}
       to={type && to}
       gap={2}
       display="flex"
@@ -24,7 +24,7 @@ const LinkButton = ({
       justifyContent="center"
       w={width}
       h={height}
-      fontSize={12}
+      fontSize={[14]}
       px={4}
       border="1px solid"
       fontWeight="bold"

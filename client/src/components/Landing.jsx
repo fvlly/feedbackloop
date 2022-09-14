@@ -1,8 +1,13 @@
-import { Box, Flex, Heading, HStack, Image, Text } from "@chakra-ui/react";
-import React from "react";
+
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { connect } from "react-redux";
+
 import LinkButton from "./LinkButton";
 
-const Landing = () => {
+const Landing = (props) => {
+
+ 
+
   return (
     <Box>
       <Box
@@ -25,16 +30,19 @@ const Landing = () => {
             Pay X for Y surveys
           </Heading>
           <Box alignSelf={"center"} fontSize='20px'>
-            <LinkButton
-              text="Create Survey"
-              width="140px"
-              height={"40px"}
-              rounded={8}
-              bgColor="blue.800"
-              color={"white"}
-              py={[4]}
-              href="/auth/google"
-            />
+        
+        <LinkButton
+        text="Create Survey"
+        width="140px"
+        height={"40px"}
+        rounded={8}
+        bgColor="blue.800"
+        color={"white"}
+        py={[4]}
+        type={props.auth && 'router'}
+        to={props.auth && "/surveys"}
+        href='/auth/google'
+      />
           </Box>
         </Box>
       </Box>
@@ -57,6 +65,15 @@ const Landing = () => {
       </Flex>
     </Box>
   );
+
+ 
+
 };
 
-export default Landing;
+const mapStateToProps = (state) => {
+  return {
+    auth:state.auth
+  }
+}
+
+export default connect(mapStateToProps)(Landing);

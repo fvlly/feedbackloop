@@ -28,7 +28,7 @@ const SurveyForm = (props) => {
             <Heading as='h3'>Create New Survey</Heading>
             {renderFields()}
             <Flex py={[4,6,]} justify='space-between'>
-                <LinkButton type to='/surveys' text='Cancel' rounded={6} bgColor='red' color='white' height='40px' icon={ImCross}/>
+                <LinkButton type='router' to='/surveys' text='Cancel' rounded={6} bgColor='red' color='white' height='40px' icon={ImCross}/>
                <Button rightIcon={<AiOutlineArrowRight />} type="submit" colorScheme='teal'>Next</Button>
                 {/* <LinkButton type  to='/surveys/review' text='Next' rounded={6} bgColor='teal' color='white' icon={AiOutlineArrowRight}/> */}
             </Flex>

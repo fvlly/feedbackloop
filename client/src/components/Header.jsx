@@ -8,41 +8,6 @@ import { AiOutlineGooglePlus } from "react-icons/ai";
 
 
 const Header = (props) => {
-  //helper
-  const renderContent = () => {
-    if (props.auth) {
-      return (
-        <HStack spacing={8}>
-          <Billing />
-          <Center
-            color="orange.500"
-            rounded={[10]}
-            p={[1.5]}
-            border="1px solid"
-            borderColor="white"
-          >
-            Credits: {props.auth.credits}
-          </Center>
-          <Link href="/api/logout">Logout</Link>
-        </HStack>
-      );
-    } else if (props.auth === null) {
-      return;
-    } else {
-      return (
-        <LinkButton
-          text="Sign in with google"
-          href="/auth/google"
-          bgColor="orange.500"
-          color="white"
-          rounded='6'
-          width='140px'
-          height='40px'
-          icon={AiOutlineGooglePlus}
-        />
-      );
-    }
-  };
 
   return (
     <nav>
@@ -73,6 +38,44 @@ const Header = (props) => {
       </Flex>
     </nav>
   );
+
+    //helper
+    function renderContent() {
+      if (props.auth) {
+        return (
+          <HStack spacing={8}>
+            <Billing />
+            <Center
+              color="orange.500"
+              rounded={[10]}
+              p={[1.5]}
+              border="1px solid"
+              borderColor="white"
+            >
+              Credits: {props.auth.credits}
+            </Center>
+            <Link href="/api/logout">Logout</Link>
+          </HStack>
+        );
+      } else if (props.auth === null) {
+        return;
+      } else {
+        return (
+          <LinkButton
+            text="Sign in with google"
+            href="/auth/google"
+            bgColor="orange.500"
+            color="white"
+            rounded='6'
+            width='140px'
+            height='40px'
+            icon={AiOutlineGooglePlus}
+          />
+        );
+      }
+    };
+  
+
 };
 
 const mapStateToProps = (state) => {

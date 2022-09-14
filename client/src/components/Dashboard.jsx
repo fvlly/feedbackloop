@@ -11,7 +11,7 @@ const Dashboard = () => {
       <SurveyList />
       <Flex  position='absolute' top={[20,'90px']} right={0}>
         <LinkButton
-        type
+        type= 'router'
           to="/surveys/new"
           bgColor="#dd6b20"
           color="white"
