@@ -10,7 +10,7 @@ const Billing = (props) => {
     description="$5 for 5 email credits"
     amount={500}
     token={token=>props.handleToken(token)}
-    stripeKey={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || process.env.VITE_STRIPE_PUBLISHABLE_KEY}
+    stripeKey={process.env.NODE_ENV ===' production'? process.env.VITE_STRIPE_PUBLISHABLE_KEY : import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY }
     >
       <Button
       bgColor={'gray.300'}

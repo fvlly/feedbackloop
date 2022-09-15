@@ -22,7 +22,8 @@ const UserDetails = (props) => {
         return;
       } else {
         return (
-          <LinkButton
+          <Center>
+            <LinkButton
             text="Sign in with google"
             href="/auth/google"
             bgColor="#ff6d60"
@@ -33,6 +34,7 @@ const UserDetails = (props) => {
             height='40px'
             icon={AiOutlineGooglePlus}
           />
+          </Center>
         )
       }
 };
