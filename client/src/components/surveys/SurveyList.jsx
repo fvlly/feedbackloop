@@ -2,8 +2,10 @@ import { Box, Text, Flex, Divider, Icon, Heading, SimpleGrid } from "@chakra-ui/
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { AiOutlineDelete } from "react-icons/ai";
+import { FcSurvey } from "react-icons/fc";
 
 import { fetchSurveys, deleteSurvey } from "../../actions";
+import LinkButton from "../LinkButton";
 
 const SurveyList = (props) => {
   useEffect(() => {
@@ -17,19 +19,41 @@ const SurveyList = (props) => {
   function renderSurveys() {
     if (props.surveys.length < 1) {
       return (
-        <Box fontSize={[16,22]} py={[4,6]}>
-          <Text>
+        <Box>
+          <Text fontSize={[16,22]} py={[4,6]}>
              Let's get you started and create your first survey.
           </Text>
-          
-      
-        </Box>
+           <LinkButton
+           type="router"
+           to="/surveys/new"
+           bgColor="gray.500"
+           color="white"
+           width="140px"
+           height="40px"
+           fontSize={'12px'}
+           rounded={10}
+           text="Create Survey"
+           icon={FcSurvey}
+         />
+         </Box>
       );
     }
 
     return (
-      <Box pt={'10px'}>
-      
+      <Box pt={'10px'} >
+        <Text color={'gray.900'} py={4} fontSize={['20px']}> Good to have you back, here are your surveys </Text>
+      <LinkButton
+           type="router"
+           to="/surveys/new"
+           bgColor="gray.500"
+           color="white"
+           width="140px"
+           height="40px"
+           fontSize={'12px'}
+           rounded={10}
+           text="Create Survey"
+           icon={FcSurvey}
+         />
       <SimpleGrid pt={[6]} columns={[null,null,2,3]} spacing={'40px'}>
         {props.surveys.reverse().map((survey) => {
       return (

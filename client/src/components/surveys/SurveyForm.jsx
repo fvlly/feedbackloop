@@ -69,9 +69,3 @@ export default reduxForm({
 })(SurveyForm);
 
 
-// dynamic error handling
-  // FIELDS.forEach(({name}) =>{
-  //   if (!values[name]) {
-  //     errors[name] = 'You must provide a Value'
-  //   }
-  // })

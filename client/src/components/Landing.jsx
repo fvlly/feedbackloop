@@ -52,15 +52,15 @@ const Landing = (props) => {
         Powered By:
       </Text>
       <Flex
-        direction={["column", "column", "row"]}
+        direction={["column", "row", "row"]}
         justify="space-evenly"
         py={[4, 6]}
         gap="2px"
       >
-        <Box>
+        <Box w={['null','300px','null']}>
           <Image src="../../mongodb.png" alt="mongodb" />
         </Box>
-        <Box>
+        <Box w={['null','300px','null']}>
           <Image src="../../sendgrid.png" alt="sendgrid" />
         </Box>
       </Flex>

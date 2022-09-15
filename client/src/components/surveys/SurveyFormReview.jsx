@@ -57,10 +57,3 @@ function mapStateToProps(state) {
 
 export default connect(mapStateToProps,{submitSurvey})(withRouter(SurveyFormReview));
 
-//manual form review
-{/* <VStack  spacing={4} divider={<StackDivider borderColor='gray.700' />}>
-            <Text> Survey Title: {formValues.title} </Text>
-            <Text> Survey Line: {formValues.subject} </Text>
-            <Text> Email Body: {formValues.body} </Text>
-            <Text> Reipients: {formValues.emails} </Text>
-        </VStack> */}
