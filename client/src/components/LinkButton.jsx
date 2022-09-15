@@ -13,19 +13,20 @@ const LinkButton = ({
   rounded,
   width,
   height,
+  fontSize,
 }) => {
   return (
     <Link
       as={type==='router' && RouterLink}
-      to={type && to}
+      to={type==='router' && to}
       gap={2}
       display="flex"
       alignItems="center"
       justifyContent="center"
       w={width}
       h={height}
-      fontSize={[14]}
-      px={4}
+      fontSize={fontSize}
+      px={2}
       border="1px solid"
       fontWeight="bold"
       color={color}

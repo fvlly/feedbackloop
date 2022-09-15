@@ -25,7 +25,7 @@ const SurveyForm = (props) => {
     return(
         <Box>
             <form onSubmit={props.handleSubmit(props.onSurveySubmit)} >
-            <Heading as='h3'>Create New Survey</Heading>
+            <Heading as='h3' py={[3]}> New Survey</Heading>
             {renderFields()}
             <Flex py={[4,6,]} justify='space-between'>
                 <LinkButton type='router' to='/surveys' text='Cancel' rounded={6} bgColor='red' color='white' height='40px' icon={ImCross}/>

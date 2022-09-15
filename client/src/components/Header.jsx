@@ -17,7 +17,7 @@ const Header = (props) => {
         w={"full"}
         top={0}
         bgColor={"gray.700"}
-        color="orange.500"
+        color="#ff6d60"
         minH="10vh"
         px={8}
         align="center"
@@ -25,7 +25,7 @@ const Header = (props) => {
         sx={{
           a: {
             _hover: {
-              color: "orange.800",
+              color: "white",
               textDecoration: "none",
             },
           },
@@ -46,15 +46,14 @@ const Header = (props) => {
           <HStack spacing={8}>
             <Billing />
             <Center
-              color="orange.500"
-              rounded={[10]}
+              color="#ff6d60"
+              
               p={[1.5]}
-              border="1px solid"
-              borderColor="white"
+              
             >
               Credits: {props.auth.credits}
             </Center>
-            <Link href="/api/logout">Logout</Link>
+            <Link href="/api/logout">Sign Out</Link>
           </HStack>
         );
       } else if (props.auth === null) {
@@ -64,9 +63,10 @@ const Header = (props) => {
           <LinkButton
             text="Sign in with google"
             href="/auth/google"
-            bgColor="orange.500"
+            bgColor="#ff6d60"
             color="white"
             rounded='6'
+            fontSize={'12px'}
             width='140px'
             height='40px'
             icon={AiOutlineGooglePlus}

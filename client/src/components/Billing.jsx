@@ -13,7 +13,8 @@ const Billing = (props) => {
     stripeKey={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || process.env.VITE_STRIPE_PUBLISHABLE_KEY}
     >
       <Button
-      colorScheme='orange'
+      bgColor={'gray.300'}
+      color='#ff6d60'
       >Add credits</Button>
     </StripeCheckout>
     )
