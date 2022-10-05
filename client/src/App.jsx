@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import {BrowserRouter,Route} from 'react-router-dom'
+import {BrowserRouter ,Route} from 'react-router-dom'
 import { connect } from "react-redux";
 
 import Dashboard from './components/Dashboard'

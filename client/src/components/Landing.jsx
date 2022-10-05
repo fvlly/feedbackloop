@@ -58,10 +58,10 @@ const Landing = (props) => {
         gap="2px"
       >
         <Box w={['null','300px','null']}>
-          <Image src="../../mongodb.png" alt="mongodb" />
+          <Image src="../../mongodb.webp" alt="mongodb" />
         </Box>
         <Box w={['null','300px','null']}>
-          <Image src="../../sendgrid.png" alt="sendgrid" />
+          <Image src="../../sendgrid.webp" alt="sendgrid" />
         </Box>
       </Flex>
     </Box>
