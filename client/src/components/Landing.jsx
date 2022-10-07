@@ -37,7 +37,7 @@ const Landing = (props) => {
               color={"white"}
               py={[4]}
               type={props.auth && "router"}
-              to={props.auth && "/surveys"}
+              to={props.auth ? "/surveys": undefined}
               href="/auth/google"
             />
           </Box>

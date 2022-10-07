@@ -18,7 +18,7 @@ const LinkButton = ({
   return (
     <Link
       as={type==='router' && RouterLink}
-      to={type==='router' && to}
+      to={type==='router' ? to : undefined}
       gap={2}
       display="flex"
       alignItems="center"
