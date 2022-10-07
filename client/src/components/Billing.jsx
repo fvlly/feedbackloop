@@ -4,13 +4,16 @@ import { connect } from "react-redux/es/exports"
 import { handleToken } from "../actions"
 
 const Billing = (props) => {
+console.log(import.meta.env.PROD);
+console.log(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
   return (
     <StripeCheckout
     name='Feedback Loop'
     description="$5 for 5 email credits"
     amount={500}
     token={token=>props.handleToken(token)}
-    stripeKey={ import.meta.env.VITE_PROD_STRIPE_PUBLISHABLE_KEY } 
+    stripeKey={ import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY } 
     >
       <Button
       bgColor={'gray.300'}
