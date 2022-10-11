@@ -44,7 +44,7 @@ const Landing = (props) => {
 
         </Box>
         <Box w={'40%'} display={['none','none','none','block']}>
-            <Image src="../../bgsurvey-image.jpg"></Image>
+            <Image src="../../bgsurvey-image.webp" loading="lazy"></Image>
           </Box>
       </Box>
       <Heading textAlign={"center"}>Let's Put your data to work</Heading>
@@ -58,10 +58,10 @@ const Landing = (props) => {
         gap="2px"
       >
         <Box w={['null','300px','null']}>
-          <Image src="../../mongodb.webp" alt="mongodb" />
+          <Image src="../../mongodb.webp" alt="mongodb" loading="lazy" />
         </Box>
         <Box w={['null','300px','null']}>
-          <Image src="../../sendgrid.webp" alt="sendgrid" />
+          <Image src="../../sendgrid.webp" alt="sendgrid" loading="lazy"  />
         </Box>
       </Flex>
     </Box>
