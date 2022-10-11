@@ -4,9 +4,6 @@ import { connect } from "react-redux/es/exports"
 import { handleToken } from "../actions"
 
 const Billing = (props) => {
-console.log(import.meta.env.PROD);
-console.log(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
-
   return (
     <StripeCheckout
     name='Feedback Loop'
